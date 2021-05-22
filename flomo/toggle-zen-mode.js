@@ -15,11 +15,13 @@ let isZen = false;
 
 function toggleZenMode() {
   if (!isZen) {
+    document.querySelector('#zen-mode-btn').innerText = '关闭专注模式';
     document.querySelector('body').setAttribute('class', 'fullscreen');
     const inputBox = document.querySelector('body.fullscreen .input-box');
     inputBox.style.height = '80vh';
     isZen = true;
   } else {
+    document.querySelector('#zen-mode-btn').innerText = '开启专注模式';
     document.querySelector('body').setAttribute('class', ' ');
     const inputBox = document.querySelector('body .input-box');
     inputBox.style.height = 'auto';
@@ -29,7 +31,8 @@ function toggleZenMode() {
 
 function addZenModeButton() {
   const button = document.createElement('button');
-  button.innerText = !isZen ? '开启专注模式' : '关闭专注模块';
+  button.setAttribute('id', 'zen-mode-btn');
+  button.innerText = '开启专注模式';
   button.style.position = 'absolute';
   button.style.top = '10px';
   button.style.right = '10px';
